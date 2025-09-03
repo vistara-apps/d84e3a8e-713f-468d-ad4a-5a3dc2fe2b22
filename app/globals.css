@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 210 25% 98%;
+    --text: 210 25% 15%;
+    --muted: 210 25% 50%;
+    --accent: 140 70% 45%;
+    --primary: 210 70% 50%;
+    --surface: 210 25% 100%;
+  }
+
+  .dark {
+    --bg: 210 25% 8%;
+    --text: 210 25% 90%;
+    --surface: 210 25% 12%;
+    --muted: 210 25% 60%;
+  }
+
+  * {
+    border-color: hsl(var(--muted) / 0.1);
+  }
+
+  body {
+    color: hsl(var(--text));
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-xl mx-auto px-4;
+  }
+
+  .card {
+    @apply bg-surface rounded-lg shadow-card border;
+    border-color: rgb(255 255 255 / 0.1);
+  }
+
+  .button {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .button-primary {
+    @apply button bg-primary text-white hover:bg-primary/90;
+  }
+
+  .button-secondary {
+    @apply button bg-surface border hover:bg-surface/80;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
